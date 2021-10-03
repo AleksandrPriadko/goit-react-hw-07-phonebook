@@ -14,8 +14,8 @@ const changeFilter = createAction("app/filterContacts");
 
 export { addContact, deleteContact, changeFilter };
 
-const fetchContactsRequest = createAction("app/fetchContactsRequest");
-const fetchContactsSuccess = createAction("app/fetchContactsSuccess");
-const fetchContactsError = createAction("app/fetchContactsError");
+// const fetchContactsRequest = createAction("app/fetchContactsRequest");
+// const fetchContactsSuccess = createAction("app/fetchContactsSuccess");
+// const fetchContactsError = createAction("app/fetchContactsError");
 
-export { fetchContactsRequest, fetchContactsSuccess, fetchContactsError };
+// export { fetchContactsRequest, fetchContactsSuccess, fetchContactsError };
