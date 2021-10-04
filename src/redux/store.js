@@ -1,4 +1,4 @@
-import { configureStore } from "@reduxjs/toolkit";
+import { configureStore, applyMiddleware } from "@reduxjs/toolkit";
 // import {
 //   persistStore,
 //   persistReducer,
@@ -11,6 +11,7 @@ import { configureStore } from "@reduxjs/toolkit";
 // } from "redux-persist";
 // import storage from "redux-persist/lib/storage";
 import appReducer from "../redux/app-reducer";
+import thunk from "redux-thunk";
 // import logger from "redux-logger";
 
 // const middleware = [
@@ -39,8 +40,11 @@ import appReducer from "../redux/app-reducer";
 
 // export default { store, persistor };
 
+const enhancer = applyMiddleware(thunk);
+
 export const store = configureStore({
   reducer: {
     contacts: appReducer,
+    enhancer,
   },
 });
