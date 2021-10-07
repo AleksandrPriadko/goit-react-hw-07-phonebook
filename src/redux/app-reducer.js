@@ -1,7 +1,7 @@
 import { combineReducers } from "redux";
 import { addContact, deleteContact, changeFilter } from "./app-actions";
 import { createReducer } from "@reduxjs/toolkit";
-import { postContacts } from "./contacts-api";
+import { postContacts } from "./async/contacts-api";
 
 const items = createReducer([], {
   [addContact]: (state, { payload }) => {
