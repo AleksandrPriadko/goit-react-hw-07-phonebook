@@ -2,6 +2,7 @@ import { Component } from "react";
 import { connect } from "react-redux";
 import styles from "./Style.module.scss";
 import { deleteContact } from "../../redux/app-actions";
+import { deleteContacts } from "../../redux/async/contactsThunk";
 
 class ContactsList extends Component {
   render() {
@@ -44,7 +45,7 @@ const mapStateToProps = (state) => {
 };
 
 const mapDispatchToProps = (dispatch) => ({
-  deleteContact: (id) => dispatch(deleteContact(id)),
+  deleteContact: (id) => dispatch(deleteContacts(id)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(ContactsList);

@@ -1,15 +1,17 @@
 import axios from "axios";
 
-const BASE_URL = "http://localhost:3000";
+export const BASE_URL = "http://localhost:3001";
 
-export function postContacts(data) {
+export function getContacts(data) {
   return axios
-    .post("", data)
+    .get(`${BASE_URL}/contacts`, data)
     .then((response) => {
       console.log(response);
+      return response.data;
     })
     .catch((error) => {
       console.log(error);
+      return error;
     });
 }
 

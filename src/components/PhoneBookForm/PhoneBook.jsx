@@ -2,6 +2,7 @@ import { Component } from "react";
 import { connect } from "react-redux";
 import Form from "./PhoneBookForm";
 import { addContact } from "../../redux/app-actions";
+import { addContacts } from "../../redux/async/contactsThunk";
 
 const INITIAL_STATE = {
   name: "",
@@ -42,7 +43,8 @@ class Phonebook extends Component {
 }
 
 const mapDispatchToProps = (dispatch) => ({
-  onSubmit: (data) => dispatch(addContact(data)),
+  onSubmit: (data) => dispatch(addContacts(data)),
+  //onSubmit: (data) => dispatch(addContact(data)),
 });
 
 export default connect(null, mapDispatchToProps)(Phonebook);
