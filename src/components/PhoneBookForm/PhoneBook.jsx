@@ -1,7 +1,7 @@
-import { Component } from "react";
-import { connect } from "react-redux";
+import { useDispatch } from "react-redux";
+import { useState } from "react";
 import Form from "./PhoneBookForm";
-import { addContact } from "../../redux/app-actions";
+//import { addContact } from "../../redux/app-actions";
 import { addContacts } from "../../redux/async/contactsThunk";
 
 const INITIAL_STATE = {
@@ -9,42 +9,63 @@ const INITIAL_STATE = {
   number: "",
 };
 
-class Phonebook extends Component {
-  state = {
-    ...INITIAL_STATE,
-  };
+export default function Phonebook() {
+  const [state, setState] = useState(INITIAL_STATE);
+  const dispatch = useDispatch();
 
-  handleChange = ({ target }) => {
+  const { name, number } = state;
+
+  const handleChange = ({ target }) => {
     const { name, value } = target;
-
-    this.setState({ [name]: value });
+    setState((prev) => ({ ...prev, [name]: value }));
   };
 
-  handleSubmit = (event) => {
+  const handleSubmit = (event) => {
     event.preventDefault();
+    const newContact = {
+      name,
+      number: Number(number),
+    };
+    dispatch(addContacts(newContact));
 
-    this.props.onSubmit({ ...this.state });
-    this.reset();
+    setState(INITIAL_STATE);
   };
 
-  reset = () => {
-    this.setState({ ...INITIAL_STATE });
-  };
-
-  render() {
-    return (
-      <Form
-        handleChange={this.handleChange}
-        handleSubmit={this.handleSubmit}
-        state={this.state}
-      />
-    );
-  }
+  return (
+    <Form
+      handleChange={handleChange}
+      handleSubmit={handleSubmit}
+      state={state}
+    />
+  );
 }
 
-const mapDispatchToProps = (dispatch) => ({
-  onSubmit: (data) => dispatch(addContacts(data)),
-  //onSubmit: (data) => dispatch(addContact(data)),
-});
+// class Phonebook extends Component {
+//   state = {
+//     ...INITIAL_STATE,
+//   };
 
-export default connect(null, mapDispatchToProps)(Phonebook);
+//   handleChange = ({ target }) => {
+//     const { name, value } = target;
+
+//     this.setState({ [name]: value });
+//   };
+
+//   handleSubmit = (event) => {
+//     event.preventDefault();
+
+//     this.props.onSubmit({ ...this.state });
+//     this.reset();
+//   };
+
+//   render() {
+
+//   }
+// }
+
+// const mapDispatchToProps = (dispatch) => ({
+//   onSubmit: (data) => dispatch(addContacts(data)),
+//   //onSubmit: (data) => dispatch(addContact(data)),
+// });
+
+// export default connect(null, mapDispatchToProps)(Phonebook);

@@ -5,6 +5,22 @@ const { default: axios } = require("axios");
 // const fetchContactsSuccess = createAction("app/fetchContactsSuccess");
 // const fetchContactsError = createAction("app/fetchContactsError");
 
+export function getContacts() {
+  return function (dispatch) {
+    dispatch({ type: "GET_CONTACTS_REQUEST" });
+    return axios
+      .post(`${BASE_URL}/contacts`)
+      .then((res) => {
+        console.log(res);
+        dispatch({ type: "GET_CONTACTS_SUCCESS", payload: res.data });
+      })
+      .catch((error) => {
+        console.log(error);
+        dispatch({ type: "GET_CONTACTS_FEILURE", payload: error });
+      });
+  };
+}
+
 export function addContacts(contacts) {
   return function (dispatch) {
     dispatch({ type: "ADD_CONTACTS_REQUEST" });
@@ -20,6 +36,7 @@ export function addContacts(contacts) {
       });
   };
 }
+
 export function deleteContacts(id) {
   return function (dispatch) {
     dispatch({ type: "DELETE_CONTACTS_REQUEST" });

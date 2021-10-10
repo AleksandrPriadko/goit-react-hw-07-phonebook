@@ -1,9 +1,10 @@
 import { combineReducers } from "redux";
 import { addContact, deleteContact, changeFilter } from "./app-actions";
 import { createReducer } from "@reduxjs/toolkit";
-import { postContacts } from "./async/contacts-api";
+import { getContacts } from "./async/contacts-api";
 
 const items = createReducer([], {
+  [getContactsSuccess]: (state, { payload }) => {},
   [addContact]: (state, { payload }) => {
     const contactName = state.some((contact) => contact.name === payload.name);
     return contactName
