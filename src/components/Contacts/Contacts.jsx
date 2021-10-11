@@ -1,6 +1,6 @@
 import { Component } from "react";
-import FindContacts from "./FindContacts";
-import ContactsList from "./ContactsList";
+import { FindContacts } from "./FindContacts";
+import { ContactsList } from "./ContactsList";
 
 class Contacts extends Component {
   render() {

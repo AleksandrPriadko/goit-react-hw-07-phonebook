@@ -1,13 +1,13 @@
 import { configureStore, applyMiddleware } from "@reduxjs/toolkit";
-import appReducer from "../redux/app-reducer";
+import contactsReducer from "../redux/async/contactsReducer";
 import thunk from "redux-thunk";
 
-const enhancer = applyMiddleware(thunk);
+//const enhancer = applyMiddleware(thunk);
 
 const store = configureStore({
   reducer: {
-    contacts: appReducer,
-    enhancer,
+    contacts: contactsReducer,
+    //enhancer,
   },
 });
 

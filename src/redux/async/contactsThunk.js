@@ -1,18 +1,19 @@
 import { BASE_URL } from "./contacts-api";
+import {
+  deleteContactsSuccess,
+  getContactsSuccess,
+  addContactsSuccess,
+} from "../app-actions";
 const { default: axios } = require("axios");
-
-// const fetchContactsRequest = createAction("app/fetchContactsRequest");
-// const fetchContactsSuccess = createAction("app/fetchContactsSuccess");
-// const fetchContactsError = createAction("app/fetchContactsError");
 
 export function getContacts() {
   return function (dispatch) {
     dispatch({ type: "GET_CONTACTS_REQUEST" });
     return axios
-      .post(`${BASE_URL}/contacts`)
+      .get(`${BASE_URL}/contacts`)
       .then((res) => {
         console.log(res);
-        dispatch({ type: "GET_CONTACTS_SUCCESS", payload: res.data });
+        dispatch(getContactsSuccess(res.data));
       })
       .catch((error) => {
         console.log(error);
@@ -28,7 +29,11 @@ export function addContacts(contacts) {
       .post(`${BASE_URL}/contacts`, contacts)
       .then((res) => {
         console.log(res);
-        dispatch({ type: "ADD_CONTACTS_SUCCESS", payload: res.data });
+        console.log(res.data);
+        if (!res.data.name) {
+          return null;
+        }
+        dispatch(addContactsSuccess(res.data));
       })
       .catch((error) => {
         console.log(error);
@@ -41,10 +46,9 @@ export function deleteContacts(id) {
   return function (dispatch) {
     dispatch({ type: "DELETE_CONTACTS_REQUEST" });
     return axios
-      .post(`${BASE_URL}/contacts/${id}`)
-      .then((res) => {
-        console.log(res);
-        dispatch({ type: "DELETE_CONTACTS_SUCCESS", payload: res.data });
+      .delete(`${BASE_URL}/contacts/${id}`)
+      .then(() => {
+        dispatch(deleteContactsSuccess(id));
       })
       .catch((error) => {
         console.log(error);
