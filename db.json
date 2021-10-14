@@ -1,18 +1,13 @@
 {
   "contacts": [
     {
-      "name": "spider",
-      "number": 380957203489,
+      "name": "super",
+      "number": "+38095723654",
       "id": 1
     },
     {
-      "name": "spider",
-      "number": 38095723654,
-      "id": 2
-    },
-    {
-      "name": "batman",
-      "number": 380957203489,
+      "name": "dad",
+      "number": "+38 096 9368872",
       "id": 3
     }
   ]

@@ -1,7 +1,6 @@
 import { useDispatch } from "react-redux";
 import { useState } from "react";
 import Form from "./PhoneBookForm";
-//import { addContact } from "../../redux/app-actions";
 import { addContacts } from "../../redux/async/contactsThunk";
 
 const INITIAL_STATE = {
@@ -24,7 +23,7 @@ export default function Phonebook() {
     event.preventDefault();
     const newContact = {
       name,
-      number: Number(number),
+      number,
     };
     dispatch(addContacts(newContact));
 
@@ -39,33 +38,3 @@ export default function Phonebook() {
     />
   );
 }
-
-// class Phonebook extends Component {
-//   state = {
-//     ...INITIAL_STATE,
-//   };
-
-//   handleChange = ({ target }) => {
-//     const { name, value } = target;
-
-//     this.setState({ [name]: value });
-//   };
-
-//   handleSubmit = (event) => {
-//     event.preventDefault();
-
-//     this.props.onSubmit({ ...this.state });
-//     this.reset();
-//   };
-
-//   render() {
-
-//   }
-// }
-
-// const mapDispatchToProps = (dispatch) => ({
-//   onSubmit: (data) => dispatch(addContacts(data)),
-//   //onSubmit: (data) => dispatch(addContact(data)),
-// });
-
-// export default connect(null, mapDispatchToProps)(Phonebook);
