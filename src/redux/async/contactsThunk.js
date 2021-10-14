@@ -3,6 +3,7 @@ import {
   deleteContactsSuccess,
   getContactsSuccess,
   addContactsSuccess,
+  changeFilterContactsSuccess,
 } from "../app-actions";
 const { default: axios } = require("axios");
 
@@ -30,9 +31,7 @@ export function addContacts(contacts) {
       .then((res) => {
         console.log(res);
         console.log(res.data);
-        if (!res.data.name) {
-          return null;
-        }
+
         dispatch(addContactsSuccess(res.data));
       })
       .catch((error) => {
@@ -47,12 +46,28 @@ export function deleteContacts(id) {
     dispatch({ type: "DELETE_CONTACTS_REQUEST" });
     return axios
       .delete(`${BASE_URL}/contacts/${id}`)
-      .then(() => {
+      .then((res) => {
+        console.log(res);
         dispatch(deleteContactsSuccess(id));
       })
       .catch((error) => {
         console.log(error);
         dispatch({ type: "DELETE_CONTACTS_FEILURE", payload: error });
+      });
+  };
+}
+export function changeFilterContacts() {
+  return function (dispatch) {
+    dispatch({ type: "FILTER_CONTACTS_REQUEST" });
+    return axios
+      .get(`${BASE_URL}/contacts`)
+      .then((res) => {
+        console.log(res.data);
+        dispatch(changeFilterContactsSuccess(res.data));
+      })
+      .catch((error) => {
+        console.log(error);
+        dispatch({ type: "FILTER_CONTACTS_FEILURE", payload: error });
       });
   };
 }

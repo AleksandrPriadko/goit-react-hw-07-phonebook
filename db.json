@@ -2,43 +2,18 @@
   "contacts": [
     {
       "name": "spider",
-      "number": "+38 097 2620406",
+      "number": 380957203489,
       "id": 1
     },
     {
-      "name": "Олександр Прядко",
-      "number": "+38 097 2620406",
+      "name": "spider",
+      "number": 38095723654,
       "id": 2
     },
     {
-      "name": "spider",
-      "number": null,
+      "name": "batman",
+      "number": 380957203489,
       "id": 3
-    },
-    {
-      "name": "Олександр Прядко",
-      "number": null,
-      "id": 4
-    },
-    {
-      "name": "spider",
-      "number": null,
-      "id": 5
-    },
-    {
-      "name": "spider",
-      "number": null,
-      "id": 6
-    },
-    {
-      "name": "spider",
-      "number": null,
-      "id": 7
-    },
-    {
-      "name": "spider",
-      "number": null,
-      "id": 8
     }
   ]
 }

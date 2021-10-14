@@ -21,6 +21,7 @@ export function ContactsList() {
   useEffect(() => {
     dispatch(getContacts());
   }, [dispatch]);
+
   // const mapStateToProps = (state) => {
   //   const { items, filter } = state.contacts;
   //   const visibleItems = getVisebleContacts(items, filter);

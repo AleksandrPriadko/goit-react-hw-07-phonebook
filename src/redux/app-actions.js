@@ -10,7 +10,7 @@ import { createAction } from "@reduxjs/toolkit";
 // }));
 
 // const deleteContact = createAction("app/deleteContacts");
-// const changeFilter = createAction("app/filterContacts");
+const changeFilter = createAction("app/filterContacts");
 
 // export { addContact, deleteContact, changeFilter };
 
@@ -23,6 +23,9 @@ const addContactsError = createAction("ADD_CONTACTS_FEILURE");
 const deleteContactsRequest = createAction("DELETE_CONTACTS_REQUEST");
 const deleteContactsSuccess = createAction("DELETE_CONTACTS_SUCCESS");
 const deleteContactsError = createAction("DELETE_CONTACTS_FEILURE");
+const changeFilterContactsRequest = createAction("FILTER_CONTACTS_REQUEST");
+const changeFilterContactsSuccess = createAction("FILTER_CONTACTS_SUCCESS");
+const changeFilterContactsError = createAction("FILTER_CONTACTS_FEILURE");
 
 export {
   getContactsRequest,
@@ -34,4 +37,8 @@ export {
   deleteContactsRequest,
   deleteContactsSuccess,
   deleteContactsError,
+  changeFilterContactsRequest,
+  changeFilterContactsSuccess,
+  changeFilterContactsError,
+  changeFilter,
 };
