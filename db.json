@@ -1,14 +1,3 @@
 {
-  "contacts": [
-    {
-      "name": "super",
-      "number": "+38095723654",
-      "id": 1
-    },
-    {
-      "name": "dad",
-      "number": "+38 096 9368872",
-      "id": 3
-    }
-  ]
+  "contacts": []
 }

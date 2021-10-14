@@ -1,7 +1,7 @@
 import { useDispatch } from "react-redux";
 import { useState } from "react";
 import Form from "./PhoneBookForm";
-import { addContacts } from "../../redux/async/contactsThunk";
+import { addContacts } from "redux/async/contactsThunk";
 
 const INITIAL_STATE = {
   name: "",

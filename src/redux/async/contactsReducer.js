@@ -5,7 +5,7 @@ import {
   deleteContactsSuccess,
   getContactsSuccess,
   changeFilter,
-} from "../../redux/app-actions";
+} from "./contactsActions";
 
 const items = createReducer([], {
   [addContactsSuccess]: (state, { payload }) => {

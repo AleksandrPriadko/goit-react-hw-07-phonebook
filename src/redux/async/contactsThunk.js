@@ -1,9 +1,10 @@
-import { getContact, addContact, deleteContact } from "./contacts-api";
+import { contactsApi } from "redux/async";
 import {
   deleteContactsSuccess,
   getContactsSuccess,
   addContactsSuccess,
-} from "../app-actions";
+} from "./contactsActions";
+const { getContact, addContact, deleteContact } = contactsApi;
 
 export function getContacts() {
   return function (dispatch) {
