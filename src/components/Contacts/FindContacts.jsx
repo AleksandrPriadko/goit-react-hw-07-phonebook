@@ -1,10 +1,10 @@
 import { useDispatch, useSelector } from "react-redux";
 import { changeFilter } from "redux/async/contactsActions";
-import { getContactsSelector } from "redux/selectors/contacts-selectors";
+import { getFilterSelector } from "redux/selectors/contacts-selectors";
 import styles from "./Style.module.scss";
 
 export function FindContacts() {
-  const value = useSelector(getContactsSelector);
+  const value = useSelector(getFilterSelector);
   const dispatch = useDispatch();
 
   const handleFilter = (event) => {
