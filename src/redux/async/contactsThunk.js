@@ -11,7 +11,7 @@ export function getContacts() {
     dispatch({ type: "GET_CONTACTS_REQUEST" });
     return getContact()
       .then((data) => {
-        dispatch(getContactsSuccess(data));
+        return data.length > 0 ? dispatch(getContactsSuccess(data)) : null;
       })
       .catch((error) => {
         dispatch({ type: "GET_CONTACTS_FEILURE", payload: error });

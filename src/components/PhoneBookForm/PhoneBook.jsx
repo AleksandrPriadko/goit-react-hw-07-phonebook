@@ -26,13 +26,10 @@ export default function Phonebook() {
       name,
       number,
     };
-    const nameFromArrey = contacts.map((c) => c.name.toLowerCase());
-
-    if (nameFromArrey.includes(name.toLowerCase())) {
-      alert(`${name} is already in contacts`);
+    if (contacts.some((contact) => contact.name === name)) {
+      return alert(`${name} is already in contacts!`);
     } else {
       dispatch(addContacts(newContact));
-      setState(INITIAL_STATE);
     }
 
     setState(INITIAL_STATE);

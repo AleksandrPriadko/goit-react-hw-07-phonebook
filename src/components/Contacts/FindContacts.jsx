@@ -7,9 +7,7 @@ export function FindContacts() {
   const value = useSelector(getFilterSelector);
   const dispatch = useDispatch();
 
-  const handleFilter = (event) => {
-    return dispatch(changeFilter(event.target.value));
-  };
+  const handleFilter = (event) => dispatch(changeFilter(event.target.value));
 
   return (
     <div>
